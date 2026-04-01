@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com data:; img-src 'self' data: blob:;">
+<title>Forge IT & AI | IT & AI Services — Vancouver, WA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c10;
+    --bg2: #0f1218;
+    --bg3: #141820;
+    --card: #161b24;
+    --border: rgba(255,255,255,0.07);
+    --accent: #00d4ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --text: #e8eaf0;
+    --muted: #8892a4;
+    --white: #ffffff;
+    --glow: 0 0 40px rgba(0,212,255,0.15);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 1.6; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 70px;
+    background: rgba(10,12,16,0.85); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.4rem; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: #000; padding: 0.5rem 1.4rem; border-radius: 6px; font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: all 0.2s; }
+  .nav-cta:hover { background: #fff; transform: translateY(-1px); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 5vw; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO ── */
+  #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 120px; position: relative; overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 20%, rgba(0,212,255,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 10% 80%, rgba(124,58,237,0.08) 0%, transparent 60%);
+  }
+  .grid-overlay {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 780px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.25);
+    color: var(--accent); padding: 6px 16px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: '●'; font-size: 0.6rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+  h1.hero-title {
+    font-family: 'Playfair Display', serif; font-weight: 800;
+    font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 1.05;
+    color: var(--white); letter-spacing: -0.01em;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1.hero-title .line2 { color: var(--accent); }
+  .hero-sub {
+    font-size: 1.15rem; color: var(--muted); max-width: 540px;
+    margin: 1.5rem 0 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn-primary { background: var(--accent); color: #000; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,255,0.35); }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--text); padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); animation: fadeUp 0.6s 0.4s ease both; flex-wrap: wrap; }
+  .stat-item h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 800; color: var(--white); }
+  .stat-item p { font-size: 0.85rem; color: var(--muted); }
+  .hero-visual { position: absolute; right: -5vw; top: 50%; transform: translateY(-50%); width: 420px; opacity: 0.08; pointer-events: none; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── SECTIONS COMMON ── */
+  .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  h2.section-title { font-family: 'Playfair Display', serif; font-weight: 800; font-size: clamp(2rem,4vw,3rem); color: var(--white); letter-spacing: -0.01em; line-height: 1.15; }
+  h2.section-title span { color: var(--accent); }
+  .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin-top: 1rem; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--bg2); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+  .service-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 2rem; position: relative; overflow: hidden;
+    transition: all 0.3s; cursor: pointer;
+  }
+  .service-card::before {
+    content: ''; position: absolute; inset: 0; opacity: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(0,212,255,0.08), transparent 70%);
+    transition: opacity 0.3s;
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); box-shadow: var(--glow); }
+  .service-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; font-size: 1.4rem; }
+  .icon-blue { background: rgba(0,212,255,0.12); }
+  .icon-purple { background: rgba(124,58,237,0.12); }
+  .icon-green { background: rgba(16,185,129,0.12); }
+  .icon-orange { background: rgba(251,146,60,0.12); }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .service-price { margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border); display: flex; align-items: baseline; gap: 8px; }
+  .price-amount { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.5rem; color: var(--accent); }
+  .price-period { font-size: 0.8rem; color: var(--muted); }
+  .price-old { font-size: 0.82rem; color: var(--muted); text-decoration: line-through; }
+  .badge-save { background: rgba(16,185,129,0.12); color: var(--accent3); font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(16,185,129,0.2); }
+
+  /* ── AI SECTION ── */
+  #ai { background: var(--bg3); }
+  .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 3rem; }
+  .ai-features { display: flex; flex-direction: column; gap: 1.5rem; }
+  .ai-feature { display: flex; gap: 1rem; align-items: flex-start; padding: 1.2rem; background: var(--card); border: 1px solid var(--border); border-radius: 12px; transition: all 0.3s; }
+  .ai-feature:hover { border-color: rgba(124,58,237,0.4); transform: translateX(6px); }
+  .ai-feature-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(124,58,237,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+  .ai-feature-text h4 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); margin-bottom: 4px; font-size: 0.95rem; }
+  .ai-feature-text p { font-size: 0.85rem; color: var(--muted); }
+  .ai-visual-box {
+    background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+    padding: 2rem; position: relative; overflow: hidden;
+    min-height: 400px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .ai-visual-box::after {
+    content: ''; position: absolute; bottom: -60px; right: -60px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,0.3), transparent);
+    pointer-events: none;
+  }
+  .chat-demo { display: flex; flex-direction: column; gap: 1rem; }
+  .chat-msg { max-width: 80%; padding: 0.8rem 1rem; border-radius: 12px; font-size: 0.88rem; line-height: 1.5; }
+  .chat-msg.user { background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.2); align-self: flex-end; color: var(--text); border-bottom-right-radius: 4px; }
+  .chat-msg.bot { background: var(--bg3); border: 1px solid var(--border); align-self: flex-start; color: var(--text); border-bottom-left-radius: 4px; }
+  .chat-msg.bot .bot-name { font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+  .typing { display: flex; gap: 4px; align-items: center; padding: 0.8rem 1rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; border-bottom-left-radius: 4px; width: fit-content; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: blink 1.4s infinite; }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes blink { 0%,80%,100%{opacity:0.3}40%{opacity:1} }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg2); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .about-photo-wrap { position: relative; }
+  .about-photo {
+    width: 100%; aspect-ratio: 4/5; background: var(--card);
+    border-radius: 20px; border: 1px solid var(--border);
+    overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center;
+  }
+  .about-photo-placeholder { 
+    width: 100%; height: 100%; 
+    background: linear-gradient(135deg, rgba(0,212,255,0.05) 0%, rgba(124,58,237,0.08) 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem;
+  }
+  .avatar-circle { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2.5rem; color: #000; }
+  .about-name-tag { text-align: center; }
+  .about-name-tag h4 { font-family: 'Playfair Display', serif; color: var(--white); font-weight: 700; }
+  .about-name-tag span { font-size: 0.85rem; color: var(--muted); }
+  .badge-float {
+    position: absolute; background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 8px;
+    font-size: 0.82rem; white-space: nowrap;
+  }
+  .badge-float.b1 { bottom: -20px; left: -20px; }
+  .badge-float.b2 { top: 20px; right: -20px; }
+  .badge-float .dot-green { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); }
+  .skills-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .skill-tag { background: var(--card); border: 1px solid var(--border); padding: 5px 12px; border-radius: 100px; font-size: 0.8rem; color: var(--muted); transition: all 0.2s; }
+  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+  .about-certs { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .cert-badge { background: var(--card); border: 1px solid var(--border); padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.8rem; color: var(--text); display: flex; align-items: center; gap: 6px; }
+  .cert-icon { font-size: 1rem; }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--bg); }
+  .pricing-toggle { display: flex; align-items: center; gap: 1rem; margin: 2rem 0 3rem; }
+  .toggle-label { font-size: 0.9rem; color: var(--muted); }
+  .toggle-label.active { color: var(--white); font-weight: 600; }
+  .toggle { width: 48px; height: 26px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; position: relative; cursor: pointer; transition: background 0.3s; }
+  .toggle.on { background: var(--accent); }
+  .toggle-knob { width: 20px; height: 20px; background: #fff; border-radius: 50%; position: absolute; top: 2px; left: 3px; transition: left 0.3s; }
+  .toggle.on .toggle-knob { left: 25px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .pricing-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+    padding: 2.5rem 2rem; position: relative; transition: all 0.3s;
+  }
+  .pricing-card.featured {
+    border-color: rgba(0,212,255,0.4);
+    background: linear-gradient(135deg, rgba(0,212,255,0.04), var(--card));
+  }
+  .pricing-card:hover { transform: translateY(-6px); box-shadow: var(--glow); }
+  .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #000; font-size: 0.72rem; font-weight: 700; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+  .pricing-card h3 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+  .pricing-card .desc { font-size: 0.87rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .price-display { display: flex; align-items: baseline; gap: 4px; margin-bottom: 1.5rem; }
+  .price-display .dollar { font-size: 1.2rem; color: var(--accent); font-weight: 700; margin-top: 6px; }
+  .price-display .num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 800; color: var(--white); line-height: 1; }
+  .price-display .period { font-size: 0.85rem; color: var(--muted); }
+  .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
+  .pricing-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; color: var(--muted); }
+  .pricing-features li .check { color: var(--accent3); flex-shrink: 0; }
+  .pricing-features li .x { color: #ef4444; flex-shrink: 0; }
+  .btn-plan { display: block; text-align: center; padding: 0.85rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.25s; }
+  .btn-plan.primary { background: var(--accent); color: #000; }
+  .btn-plan.primary:hover { box-shadow: 0 6px 24px rgba(0,212,255,0.35); transform: translateY(-2px); }
+  .btn-plan.outline { border: 1.5px solid var(--border); color: var(--text); }
+  .btn-plan.outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── PROCESS ── */
+  #process { background: var(--bg2); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 3.5rem; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 40px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent); }
+  .step-card { padding: 2rem 1.5rem; text-align: center; position: relative; }
+  .step-num { width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.2rem; color: var(--accent); position: relative; z-index: 1; }
+  .step-card h4 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+  .step-card p { font-size: 0.85rem; color: var(--muted); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--bg3); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; position: relative; }
+  .testi-card::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 5rem; color: rgba(0,212,255,0.08); position: absolute; top: 0; left: 1.5rem; line-height: 1; }
+  .stars { color: #fbbf24; font-size: 0.9rem; margin-bottom: 1rem; }
+  .testi-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+  .av1 { background: rgba(0,212,255,0.15); color: var(--accent); }
+  .av2 { background: rgba(124,58,237,0.15); color: #a78bfa; }
+  .av3 { background: rgba(16,185,129,0.15); color: var(--accent3); }
+  .author-info span { display: block; }
+  .author-name { font-weight: 600; color: var(--white); font-size: 0.9rem; }
+  .author-title { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--bg); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .contact-item h4 { font-weight: 600; color: var(--white); font-size: 0.9rem; margin-bottom: 2px; }
+  .contact-item p { font-size: 0.88rem; color: var(--muted); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 0.82rem; color: var(--muted); font-weight: 500; }
+  .form-group input, .form-group textarea, .form-group select {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.75rem 1rem; color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.9rem;
+    transition: border-color 0.2s; outline: none; resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+  .form-group textarea { min-height: 120px; }
+  .form-group select option { background: var(--bg2); }
+  .submit-btn {
+    background: var(--accent); color: #000; border: none; padding: 0.9rem; border-radius: 8px;
+    font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.25s;
+    font-family: 'Inter', sans-serif;
+  }
+  .submit-btn:hover { box-shadow: 0 6px 24px rgba(0,212,255,0.35); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg2); border-top: 1px solid var(--border);
+    padding: 4rem 5vw 2rem;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { font-size: 0.88rem; color: var(--muted); margin-top: 1rem; max-width: 280px; line-height: 1.7; }
+  .footer-col h5 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); margin-bottom: 1rem; font-size: 0.9rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--accent); }
+  .footer-bottom { padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-bottom p { font-size: 0.82rem; color: var(--muted); }
+
+  /* ── SCROLL ANIMATION ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .testi-grid { grid-template-columns: 1fr; }
+    .ai-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-photo-wrap { max-width: 320px; margin: 0 auto; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+    .process-steps::before { display: none; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5vw; }
+    .services-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+  }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none; position: fixed; inset: 70px 0 0; z-index: 999;
+    background: rgba(10,12,16,0.97); backdrop-filter: blur(20px);
+    padding: 2rem 5vw; flex-direction: column; gap: 1.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.2rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+
+  /* Floating elements animation */
+  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .float { animation: floatY 4s ease-in-out infinite; }
+  .float2 { animation: floatY 5s 1s ease-in-out infinite; }
+
+  /* ── CIRCUIT LINES ── */
+  .circuit { position: absolute; pointer-events: none; opacity: 0.04; }
+
+  /* notification popup */
+  .notif-popup {
+    position: fixed; bottom: 30px; left: 30px; z-index: 9999;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1rem 1.2rem; display: flex; align-items: center; gap: 12px;
+    max-width: 280px; transform: translateX(-120%); transition: transform 0.5s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .notif-popup.show { transform: translateX(0); }
+  .notif-av { width: 36px; height: 36px; border-radius: 50%; background: rgba(16,185,129,0.15); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .notif-text span { display: block; }
+  .notif-title { font-weight: 600; color: var(--white); font-size: 0.85rem; }
+  .notif-sub { font-size: 0.75rem; color: var(--muted); }
+  .notif-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); position: absolute; top: 12px; right: 12px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="logo" data-nav="home" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+    <svg viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <defs>
+        <linearGradient id="ncg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+      </defs>
+      <polygon points="20,3 34,11 34,27 20,35 6,27 6,11" fill="rgba(0,212,255,0.06)" stroke="url(#ncg)" stroke-width="1.5"/>
+      <rect x="14" y="11" width="3" height="18" rx="1.5" fill="url(#ncg)"/>
+      <rect x="14" y="11" width="12" height="3" rx="1.5" fill="url(#ncg)"/>
+      <rect x="14" y="19" width="9" height="3" rx="1.5" fill="url(#ncg)"/>
+      <circle cx="34" cy="11" r="3" fill="#00d4ff" opacity="0.9"/>
+    </svg>
+    <span>Forge<span style="color:var(--accent)">IT</span> <span style="color:var(--muted);font-weight:400;font-size:0.9rem;">&amp; AI</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" data-nav="home">Home</a></li>
+    <li><a href="#" data-nav="services">Services</a></li>
+    <li><a href="#" data-nav="ai">AI Solutions</a></li>
+    <li><a href="#" data-nav="pricing">Pricing</a></li>
+    <li><a href="#" data-nav="about">About</a></li>
+    <li><a href="#" data-nav="contact">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cta" data-nav="contact">Get a Free Audit</a>
+  <div class="hamburger" id="hamburgerBtn">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" data-nav="home" data-mobile="1">🏠 Home</a>
+  <a href="#" data-nav="services" data-mobile="1">⚙️ Services</a>
+  <a href="#" data-nav="ai" data-mobile="1">🤖 AI Solutions</a>
+  <a href="#" data-nav="pricing" data-mobile="1">💰 Pricing</a>
+  <a href="#" data-nav="about" data-mobile="1">👤 About</a>
+  <a href="#" data-nav="contact" data-mobile="1">📬 Contact</a>
+</div>
+
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section id="home" style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-top:70px;position:relative;overflow:hidden;gap:0;">
+
+    <!-- BG effects -->
+    <div class="grid-overlay" style="position:absolute;inset:0;z-index:0;opacity:0.3;"></div>
+    <div style="position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(0,212,255,0.05) 0%,transparent 70%),radial-gradient(ellipse 40% 50% at 20% 30%,rgba(124,58,237,0.07) 0%,transparent 60%);pointer-events:none;"></div>
+
+    <!-- LEFT: text content -->
+    <div style="position:relative;z-index:1;padding:0 4vw 0 5vw;">
+      <div class="hero-badge" style="animation:fadeUp 0.5s ease both;">Available · Vancouver, WA &amp; Remote</div>
+      <h1 class="hero-title" style="animation:fadeUp 0.5s 0.1s ease both;">Enterprise IT.<br><span class="line2">Human Scale.</span></h1>
+      <p class="hero-sub" style="animation:fadeUp 0.5s 0.2s ease both;">Managed IT, cybersecurity, and AI automation — Fortune-500-grade expertise without the Fortune-500 price tag.</p>
+      <div class="hero-btns" style="animation:fadeUp 0.5s 0.3s ease both;">
+        <a href="#" class="btn-primary" data-nav="contact">Get a Free IT Audit →</a>
+        <a href="#" class="btn-outline" data-nav="services">Explore Services</a>
+      </div>
+      <div class="hero-stats" style="animation:fadeUp 0.5s 0.4s ease both;">
+        <div class="stat-item"><h3>10+</h3><p>Years Experience</p></div>
+        <div class="stat-item"><h3>24/7</h3><p>Monitoring</p></div>
+        <div class="stat-item"><h3>CMMC</h3><p>Certified Ready</p></div>
+        <div class="stat-item"><h3>AI</h3><p>Automation</p></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: animated logo mark -->
+    <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;padding:0 4vw 0 2vw;animation:fadeUp 0.7s 0.3s ease both;">
+      <svg viewBox="0 0 420 420" style="width:min(400px,90%);height:auto;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hcg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00d4ff"/>
+            <stop offset="100%" stop-color="#7c3aed"/>
+          </linearGradient>
+          <linearGradient id="hcg2" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#00d4ff"/>
+            <stop offset="100%" stop-color="#a78bfa"/>
+          </linearGradient>
+          <filter id="hgf">
+            <feGaussianBlur stdDeviation="5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="hgf2">
+            <feGaussianBlur stdDeviation="18" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- outer glow ring -->
+        <circle cx="210" cy="195" r="145" fill="none" stroke="url(#hcg)" stroke-width="0.6" opacity="0.15"/>
+        <circle cx="210" cy="195" r="120" fill="none" stroke="url(#hcg)" stroke-width="0.4" opacity="0.1"/>
+
+        <!-- ambient glow -->
+        <ellipse cx="210" cy="195" rx="100" ry="100" fill="#00d4ff" opacity="0.025" filter="url(#hgf2)"/>
+        <ellipse cx="210" cy="195" rx="60" ry="60" fill="#7c3aed" opacity="0.04" filter="url(#hgf2)"/>
+
+        <!-- main hexagon -->
+        <polygon points="210,75 287,118 287,204 210,247 133,204 133,118"
+          fill="rgba(0,212,255,0.03)" stroke="url(#hcg)" stroke-width="1.5" opacity="0.7"/>
+        <!-- inner hex -->
+        <polygon points="210,95 272,130 272,200 210,235 148,200 148,130"
+          fill="rgba(0,212,255,0.02)" stroke="rgba(0,212,255,0.2)" stroke-width="0.8"/>
+        <!-- inner hex 2 -->
+        <polygon points="210,113 258,140 258,194 210,221 162,194 162,140"
+          fill="rgba(124,58,237,0.04)" stroke="rgba(124,58,237,0.15)" stroke-width="0.6"/>
+
+        <!-- F letterform — large, centered in hex -->
+        <rect x="187" y="128" width="7" height="82" rx="3.5" fill="url(#hcg2)"/>
+        <rect x="187" y="128" width="42" height="7" rx="3.5" fill="url(#hcg2)"/>
+        <rect x="187" y="162" width="32" height="7" rx="3.5" fill="url(#hcg2)"/>
+
+        <!-- spark at top-right vertex -->
+        <circle cx="287" cy="118" r="7" fill="#00d4ff" filter="url(#hgf)" opacity="0.9"/>
+        <circle cx="287" cy="118" r="12" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.3"/>
+        <circle cx="287" cy="118" r="18" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.15"/>
+
+        <!-- circuit traces from hex vertices -->
+        <polyline points="287,204 320,204 320,235 350,235" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.25"/>
+        <circle cx="350" cy="235" r="3" fill="#00d4ff" opacity="0.3"/>
+        <polyline points="133,118 100,118 100,88 72,88" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.25"/>
+        <circle cx="72" cy="88" r="3" fill="#7c3aed" opacity="0.3"/>
+        <polyline points="210,247 210,290 245,290 245,318" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.2"/>
+        <circle cx="245" cy="318" r="3" fill="#00d4ff" opacity="0.25"/>
+        <polyline points="133,204 88,204 88,230" fill="none" stroke="url(#hcg)" stroke-width="1" opacity="0.2"/>
+        <circle cx="88" cy="230" r="3" fill="url(#hcg)" opacity="0.3"/>
+        <polyline points="287,118 340,88 360,88" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.2"/>
+        <circle cx="360" cy="88" r="2.5" fill="#00d4ff" opacity="0.25"/>
+
+        <!-- small node dots on traces -->
+        <circle cx="320" cy="204" r="2" fill="#00d4ff" opacity="0.35"/>
+        <circle cx="100" cy="118" r="2" fill="#7c3aed" opacity="0.35"/>
+        <circle cx="245" cy="290" r="2" fill="#00d4ff" opacity="0.3"/>
+
+        <!-- FORGE IT & AI wordmark below hex -->
+        <text x="210" y="298" text-anchor="middle"
+          font-family="Georgia, 'Times New Roman', serif"
+          font-size="32" font-weight="700"
+          letter-spacing="4"
+          fill="#ffffff">FORGE</text>
+        <text x="186" y="322" text-anchor="middle"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="13" font-weight="300" letter-spacing="10"
+          fill="rgba(255,255,255,0.38)">IT</text>
+        <text x="232" y="322" text-anchor="middle"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="13" font-weight="600" letter-spacing="4"
+          fill="url(#hcg)" filter="url(#hgf)">&amp; AI</text>
+
+        <!-- thin rule under FORGE -->
+        <line x1="118" y1="274" x2="302" y2="274" stroke="url(#hcg)" stroke-width="0.7" opacity="0.4"/>
+
+        <!-- tagline -->
+        <text x="210" y="350" text-anchor="middle"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="7.5" letter-spacing="2.5"
+          fill="rgba(255,255,255,0.18)">VANCOUVER, WA  ·  FORGEITAI.COM</text>
+
+        <!-- animated pulse ring on spark -->
+        <circle cx="287" cy="118" r="22" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0" style="animation:heroSpark 3s ease-out infinite;">
+        </circle>
+      </svg>
+    </div>
+
+  </section>
+
+  <style>
+    @keyframes heroSpark {
+      0%   { r:12; opacity:0.5; }
+      100% { r:40; opacity:0; }
+    }
+    @media (max-width: 768px) {
+      #home { grid-template-columns: 1fr !important; }
+      #home > div:last-child { display:none; }
+    }
+  </style>
+
+  <!-- TRUST BAR -->
+  <div style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 5vw;">
+    <div style="display:flex;flex-wrap:wrap;gap:1rem 1.8rem;justify-content:center;align-items:center;">
+      <span style="font-size:0.7rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;font-weight:600;">Platforms:</span>
+      <span style="color:var(--muted);font-size:0.82rem;font-weight:500;">Microsoft 365</span><span style="color:var(--border);">·</span>
+      <span style="color:var(--muted);font-size:0.82rem;font-weight:500;">SentinelOne</span><span style="color:var(--border);">·</span>
+      <span style="color:var(--muted);font-size:0.82rem;font-weight:500;">Arctic Wolf</span><span style="color:var(--border);">·</span>
+      <span style="color:var(--muted);font-size:0.82rem;font-weight:500;">FortiGate</span><span style="color:var(--border);">·</span>
+      <span style="color:var(--muted);font-size:0.82rem;font-weight:500;">VMware ESXi</span><span style="color:var(--border);">·</span>
+      <span style="color:var(--muted);font-size:0.82rem;font-weight:500;">Active Directory</span><span style="color:var(--border);">·</span>
+      <span style="color:var(--muted);font-size:0.82rem;font-weight:500;">Anthropic Claude</span>
+    </div>
+  </div>
+
+  <!-- SERVICES GRID -->
+  <section style="background:var(--bg2);padding:65px 5vw;">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <p class="section-label">What I Do</p>
+        <h2 class="section-title">IT Services &amp; <span>AI Automation</span></h2>
+      </div>
+      <a href="#" class="btn-outline" data-nav="services" style="white-space:nowrap;">View All Services →</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon icon-blue">🖥️</div>
+        <h3>Managed IT Services</h3>
+        <p>Full-stack IT management: endpoints, servers, M365, patching, and proactive monitoring — one flat monthly rate.</p>
+        <div class="service-price"><span class="price-amount">$130</span><span class="price-period">/user/mo</span><span class="price-old">vs $150+</span><span class="badge-save">Save $20</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-purple">🤖</div>
+        <h3>AI Chatbots &amp; Agents</h3>
+        <p>Custom-trained AI assistants for customer service, lead capture, and internal ops — deployed on your platform.</p>
+        <div class="service-price"><span class="price-amount">$280</span><span class="price-period">/mo</span><span class="price-old">vs $300+</span><span class="badge-save">Save $20</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-green">🔒</div>
+        <h3>Cybersecurity</h3>
+        <p>EDR/XDR, firewall hardening, CMMC/NIST compliance, SOC integration, and incident response.</p>
+        <div class="service-price"><span class="price-amount">$155</span><span class="price-period">/user/mo</span><span class="price-old">vs $175</span><span class="badge-save">Save $20</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-orange">🌐</div>
+        <h3>Website Development</h3>
+        <p>Professional sites with SEO, responsive design, and optional AI chat — built fast, priced fairly.</p>
+        <div class="service-price"><span class="price-amount">$780</span><span class="price-period">one-time</span><span class="price-old">vs $800+</span><span class="badge-save">Save $20</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT: IT Infrastructure -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:400px;" class="home-split">
+    <div style="background:#0d1118;display:flex;align-items:center;justify-content:center;min-height:300px;position:relative;overflow:hidden;">
+      <svg viewBox="0 0 420 320" style="width:90%;height:90%;max-width:420px;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="itg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0.9"/><stop offset="100%" stop-color="#0066aa" stop-opacity="0.7"/></linearGradient>
+          <filter id="itglow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- grid lines bg -->
+        <g opacity="0.04" stroke="#00d4ff" stroke-width="0.5">
+          <line x1="0" y1="40" x2="420" y2="40"/><line x1="0" y1="80" x2="420" y2="80"/>
+          <line x1="0" y1="120" x2="420" y2="120"/><line x1="0" y1="160" x2="420" y2="160"/>
+          <line x1="0" y1="200" x2="420" y2="200"/><line x1="0" y1="240" x2="420" y2="240"/>
+          <line x1="0" y1="280" x2="420" y2="280"/>
+          <line x1="60" y1="0" x2="60" y2="320"/><line x1="120" y1="0" x2="120" y2="320"/>
+          <line x1="180" y1="0" x2="180" y2="320"/><line x1="240" y1="0" x2="240" y2="320"/>
+          <line x1="300" y1="0" x2="300" y2="320"/><line x1="360" y1="0" x2="360" y2="320"/>
+        </g>
+        <!-- Server rack -->
+        <rect x="60" y="50" width="120" height="220" rx="6" fill="#0f1820" stroke="#00d4ff" stroke-width="1" opacity="0.7"/>
+        <rect x="68" y="62" width="104" height="14" rx="3" fill="#0d2030" stroke="#00d4ff" stroke-width="0.5" opacity="0.6"/>
+        <rect x="68" y="82" width="104" height="14" rx="3" fill="#0d2030" stroke="#00d4ff" stroke-width="0.5" opacity="0.6"/>
+        <rect x="68" y="102" width="104" height="14" rx="3" fill="#0d2030" stroke="#00d4ff" stroke-width="0.5" opacity="0.6"/>
+        <rect x="68" y="122" width="104" height="14" rx="3" fill="#0d2030" stroke="#00d4ff" stroke-width="0.5" opacity="0.6"/>
+        <rect x="68" y="142" width="104" height="14" rx="3" fill="#0d2030" stroke="#00d4ff" stroke-width="0.5" opacity="0.6"/>
+        <rect x="68" y="162" width="104" height="14" rx="3" fill="#0d2030" stroke="#00d4ff" stroke-width="0.5" opacity="0.6"/>
+        <!-- LED status lights -->
+        <circle cx="80" cy="69" r="3" fill="#00d4ff" filter="url(#itglow)" opacity="0.9"/>
+        <circle cx="80" cy="89" r="3" fill="#10b981" filter="url(#itglow)" opacity="0.9"/>
+        <circle cx="80" cy="109" r="3" fill="#00d4ff" filter="url(#itglow)" opacity="0.9"/>
+        <circle cx="80" cy="129" r="3" fill="#10b981" filter="url(#itglow)" opacity="0.9"/>
+        <circle cx="80" cy="149" r="3" fill="#00d4ff" filter="url(#itglow)" opacity="0.9"/>
+        <circle cx="80" cy="169" r="3" fill="#fbbf24" filter="url(#itglow)" opacity="0.9"/>
+        <!-- Network lines from server -->
+        <line x1="180" y1="100" x2="240" y2="80" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+        <line x1="180" y1="120" x2="240" y2="160" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+        <line x1="180" y1="140" x2="240" y2="240" stroke="#00d4ff" stroke-width="0.8" opacity="0.3"/>
+        <!-- Node circles -->
+        <circle cx="255" cy="72" r="14" fill="#0f1820" stroke="#00d4ff" stroke-width="1" opacity="0.8"/>
+        <circle cx="255" cy="72" r="5" fill="#00d4ff" opacity="0.6" filter="url(#itglow)"/>
+        <circle cx="258" cy="160" r="14" fill="#0f1820" stroke="#7c3aed" stroke-width="1" opacity="0.8"/>
+        <circle cx="258" cy="160" r="5" fill="#7c3aed" opacity="0.6" filter="url(#itglow)"/>
+        <circle cx="252" cy="244" r="14" fill="#0f1820" stroke="#10b981" stroke-width="1" opacity="0.8"/>
+        <circle cx="252" cy="244" r="5" fill="#10b981" opacity="0.6" filter="url(#itglow)"/>
+        <!-- Secondary lines -->
+        <line x1="269" y1="72" x2="320" y2="52" stroke="#00d4ff" stroke-width="0.8" opacity="0.3"/>
+        <line x1="269" y1="72" x2="322" y2="100" stroke="#00d4ff" stroke-width="0.8" opacity="0.3"/>
+        <circle cx="332" cy="50" r="6" fill="#0f1820" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="334" cy="102" r="6" fill="#0f1820" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+        <!-- Label -->
+        <text x="210" y="295" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" letter-spacing="4" fill="rgba(0,212,255,0.35)">NETWORK INFRASTRUCTURE</text>
+      </svg>
+    </div>
+    <div style="background:var(--bg);padding:3.5rem 4rem;display:flex;flex-direction:column;justify-content:center;" class="reveal-right">
+      <p class="section-label">Infrastructure</p>
+      <h2 class="section-title" style="font-size:clamp(1.5rem,2.8vw,2.2rem);">Your Network,<br><span>Always On</span></h2>
+      <p style="color:var(--muted);margin:1rem 0 1.5rem;font-size:0.93rem;line-height:1.8;">From Active Directory and DNS to FortiGate firewalls and VMware clusters — I manage the full stack so your team stays productive and your data stays safe.</p>
+      <a href="#" class="btn-primary" style="width:fit-content;" data-nav="services">See IT Services →</a>
+    </div>
+  </div>
+
+  <!-- SPLIT: AI (reversed) -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:400px;" class="home-split">
+    <div style="background:var(--bg2);padding:3.5rem 4rem;display:flex;flex-direction:column;justify-content:center;" class="reveal-left">
+      <p class="section-label">AI &amp; Automation</p>
+      <h2 class="section-title" style="font-size:clamp(1.5rem,2.8vw,2.2rem);">Let AI Do the<br><span>Heavy Lifting</span></h2>
+      <p style="color:var(--muted);margin:1rem 0 1.5rem;font-size:0.93rem;line-height:1.8;">Custom chatbots, workflow automation, and AI agents trained on your business — reducing manual work and delivering measurable ROI from day one.</p>
+      <a href="#" class="btn-primary" style="width:fit-content;" data-nav="ai">Explore AI Solutions →</a>
+    </div>
+    <div style="background:#0d1018;display:flex;align-items:center;justify-content:center;min-height:300px;position:relative;overflow:hidden;">
+      <svg viewBox="0 0 420 320" style="width:90%;height:90%;max-width:420px;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="aig" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+          <filter id="aiglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- grid bg -->
+        <g opacity="0.04" stroke="#7c3aed" stroke-width="0.5">
+          <line x1="0" y1="40" x2="420" y2="40"/><line x1="0" y1="80" x2="420" y2="80"/>
+          <line x1="0" y1="120" x2="420" y2="120"/><line x1="0" y1="160" x2="420" y2="160"/>
+          <line x1="0" y1="200" x2="420" y2="200"/><line x1="0" y1="240" x2="420" y2="240"/>
+          <line x1="60" y1="0" x2="60" y2="320"/><line x1="120" y1="0" x2="120" y2="320"/>
+          <line x1="180" y1="0" x2="180" y2="320"/><line x1="240" y1="0" x2="240" y2="320"/>
+          <line x1="300" y1="0" x2="300" y2="320"/><line x1="360" y1="0" x2="360" y2="320"/>
+        </g>
+        <!-- Brain/neural network nodes -->
+        <!-- Central node -->
+        <circle cx="210" cy="155" r="22" fill="#160a2a" stroke="#7c3aed" stroke-width="1.5" opacity="0.9"/>
+        <circle cx="210" cy="155" r="10" fill="#7c3aed" opacity="0.5" filter="url(#aiglow)"/>
+        <!-- Ring nodes -->
+        <circle cx="210" cy="75" r="14" fill="#110820" stroke="#a78bfa" stroke-width="1" opacity="0.8"/>
+        <circle cx="210" cy="75" r="5" fill="#a78bfa" opacity="0.6" filter="url(#aiglow)"/>
+        <circle cx="290" cy="115" r="14" fill="#110820" stroke="#a78bfa" stroke-width="1" opacity="0.8"/>
+        <circle cx="290" cy="115" r="5" fill="#a78bfa" opacity="0.6" filter="url(#aiglow)"/>
+        <circle cx="290" cy="195" r="14" fill="#110820" stroke="#a78bfa" stroke-width="1" opacity="0.8"/>
+        <circle cx="290" cy="195" r="5" fill="#a78bfa" opacity="0.6" filter="url(#aiglow)"/>
+        <circle cx="210" cy="235" r="14" fill="#110820" stroke="#a78bfa" stroke-width="1" opacity="0.8"/>
+        <circle cx="210" cy="235" r="5" fill="#a78bfa" opacity="0.6" filter="url(#aiglow)"/>
+        <circle cx="130" cy="195" r="14" fill="#110820" stroke="#a78bfa" stroke-width="1" opacity="0.8"/>
+        <circle cx="130" cy="195" r="5" fill="#a78bfa" opacity="0.6" filter="url(#aiglow)"/>
+        <circle cx="130" cy="115" r="14" fill="#110820" stroke="#a78bfa" stroke-width="1" opacity="0.8"/>
+        <circle cx="130" cy="115" r="5" fill="#a78bfa" opacity="0.6" filter="url(#aiglow)"/>
+        <!-- Connection lines center to ring -->
+        <line x1="210" y1="133" x2="210" y2="89" stroke="#7c3aed" stroke-width="1" opacity="0.45"/>
+        <line x1="228" y1="143" x2="276" y2="121" stroke="#7c3aed" stroke-width="1" opacity="0.45"/>
+        <line x1="228" y1="167" x2="276" y2="189" stroke="#7c3aed" stroke-width="1" opacity="0.45"/>
+        <line x1="210" y1="177" x2="210" y2="221" stroke="#7c3aed" stroke-width="1" opacity="0.45"/>
+        <line x1="192" y1="167" x2="144" y2="189" stroke="#7c3aed" stroke-width="1" opacity="0.45"/>
+        <line x1="192" y1="143" x2="144" y2="121" stroke="#7c3aed" stroke-width="1" opacity="0.45"/>
+        <!-- Outer ring nodes -->
+        <circle cx="210" cy="38" r="8" fill="#110820" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="340" cy="80" r="8" fill="#110820" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="348" cy="240" r="8" fill="#110820" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="80" cy="240" r="8" fill="#110820" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="72" cy="80" r="8" fill="#110820" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+        <!-- Outer connections -->
+        <line x1="210" y1="61" x2="210" y2="46" stroke="#00d4ff" stroke-width="0.7" opacity="0.25"/>
+        <line x1="304" y1="115" x2="340" y2="88" stroke="#00d4ff" stroke-width="0.7" opacity="0.25"/>
+        <line x1="304" y1="195" x2="340" y2="232" stroke="#00d4ff" stroke-width="0.7" opacity="0.25"/>
+        <line x1="116" y1="195" x2="88" y2="232" stroke="#00d4ff" stroke-width="0.7" opacity="0.25"/>
+        <line x1="116" y1="115" x2="80" y2="88" stroke="#00d4ff" stroke-width="0.7" opacity="0.25"/>
+        <!-- Chat bubble hint -->
+        <rect x="295" y="42" width="80" height="38" rx="8" fill="#1a0a30" stroke="#7c3aed" stroke-width="0.8" opacity="0.7"/>
+        <rect x="295" y="50" width="54" height="4" rx="2" fill="#7c3aed" opacity="0.4"/>
+        <rect x="295" y="60" width="40" height="4" rx="2" fill="#7c3aed" opacity="0.3"/>
+        <polygon points="299,80 308,80 299,88" fill="#7c3aed" opacity="0.5"/>
+        <!-- Label -->
+        <text x="210" y="295" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" letter-spacing="4" fill="rgba(124,58,237,0.4)">AI NEURAL AUTOMATION</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- WHY ME -->
+  <section style="background:var(--bg);padding:65px 5vw;">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem;">
+      <p class="section-label">Why Forge IT &amp; AI</p>
+      <h2 class="section-title">The Difference Is <span>In the Details</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;">
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;">
+        <div style="font-size:1.8rem;margin-bottom:0.8rem;">⚡</div>
+        <h4 style="font-family:'Playfair Display',serif;font-weight:700;color:var(--white);margin-bottom:0.4rem;font-size:1rem;">Always $20 Less</h4>
+        <p style="font-size:0.86rem;color:var(--muted);line-height:1.7;">Every service priced $20 below market average. Enterprise-grade quality, zero agency overhead.</p>
+      </div>
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;">
+        <div style="font-size:1.8rem;margin-bottom:0.8rem;">🎯</div>
+        <h4 style="font-family:'Playfair Display',serif;font-weight:700;color:var(--white);margin-bottom:0.4rem;font-size:1rem;">One Expert. Full Stack.</h4>
+        <p style="font-size:0.86rem;color:var(--muted);line-height:1.7;">One person who knows your environment end-to-end. No ticket queues. No hand-offs. Direct line always.</p>
+      </div>
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;">
+        <div style="font-size:1.8rem;margin-bottom:0.8rem;">🤝</div>
+        <h4 style="font-family:'Playfair Display',serif;font-weight:700;color:var(--white);margin-bottom:0.4rem;font-size:1rem;">IT + AI in One Place</h4>
+        <p style="font-size:0.86rem;color:var(--muted);line-height:1.7;">Most IT firms don't do AI. Most AI firms don't do IT. Infrastructure and automation working together.</p>
+      </div>
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;">
+        <div style="font-size:1.8rem;margin-bottom:0.8rem;">🛡️</div>
+        <h4 style="font-family:'Playfair Display',serif;font-weight:700;color:var(--white);margin-bottom:0.4rem;font-size:1rem;">Defense-Grade Security</h4>
+        <p style="font-size:0.86rem;color:var(--muted);line-height:1.7;">Real CMMC and NIST 800-171 experience from live defense environments — not just certifications on paper.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CYBERSECURITY BANNER -->
+  <div style="background:#060c10;position:relative;overflow:hidden;min-height:340px;display:grid;grid-template-columns:1fr 1fr;align-items:center;">
+    <!-- Left: text -->
+    <div style="position:relative;z-index:1;padding:3.5rem 3rem 3.5rem 5vw;" class="reveal">
+      <p class="section-label">Cybersecurity</p>
+      <h2 class="section-title" style="font-size:clamp(1.7rem,3.2vw,2.6rem);">Breaches Don't Announce<br><span>Themselves</span></h2>
+      <p style="color:var(--muted);margin:1rem 0 1.8rem;font-size:0.93rem;line-height:1.8;max-width:460px;">SentinelOne EDR, FortiGate hardening, CMMC compliance, and 24/7 threat monitoring — proactive security before something breaks, not after.</p>
+      <a href="#" class="btn-primary" data-nav="services">View Security Services →</a>
+    </div>
+    <!-- Right: graphic -->
+    <div style="display:flex;align-items:center;justify-content:center;padding:2rem;">
+      <svg viewBox="0 0 380 280" style="width:100%;max-width:380px;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="shg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient>
+          <linearGradient id="shg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
+          <filter id="shglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- grid -->
+        <g opacity="0.04" stroke="#10b981" stroke-width="0.5">
+          <line x1="0" y1="40" x2="380" y2="40"/><line x1="0" y1="80" x2="380" y2="80"/>
+          <line x1="0" y1="120" x2="380" y2="120"/><line x1="0" y1="160" x2="380" y2="160"/>
+          <line x1="0" y1="200" x2="380" y2="200"/><line x1="0" y1="240" x2="380" y2="240"/>
+          <line x1="50" y1="0" x2="50" y2="280"/><line x1="100" y1="0" x2="100" y2="280"/>
+          <line x1="150" y1="0" x2="150" y2="280"/><line x1="200" y1="0" x2="200" y2="280"/>
+          <line x1="250" y1="0" x2="250" y2="280"/><line x1="300" y1="0" x2="300" y2="280"/>
+          <line x1="350" y1="0" x2="350" y2="280"/>
+        </g>
+        <!-- Shield main -->
+        <path d="M190,22 L272,52 L272,138 Q272,200 190,230 Q108,200 108,138 L108,52 Z"
+          fill="#071510" stroke="#10b981" stroke-width="1.5" opacity="0.85"/>
+        <!-- Shield inner -->
+        <path d="M190,38 L258,63 L258,138 Q258,188 190,212 Q122,188 122,138 L122,63 Z"
+          fill="rgba(16,185,129,0.05)" stroke="rgba(16,185,129,0.25)" stroke-width="0.8"/>
+        <!-- Checkmark inside shield -->
+        <polyline points="160,128 178,148 222,108"
+          fill="none" stroke="url(#shg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#shglow)"/>
+        <!-- Threat nodes being blocked -->
+        <circle cx="62" cy="82" r="12" fill="#1a0808" stroke="#ef4444" stroke-width="1" opacity="0.8"/>
+        <line x1="57" y1="77" x2="67" y2="87" stroke="#ef4444" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <line x1="67" y1="77" x2="57" y2="87" stroke="#ef4444" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <circle cx="44" cy="155" r="12" fill="#1a0808" stroke="#f97316" stroke-width="1" opacity="0.8"/>
+        <line x1="39" y1="150" x2="49" y2="160" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <line x1="49" y1="150" x2="39" y2="160" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <circle cx="72" cy="218" r="10" fill="#1a0808" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+        <line x1="68" y1="214" x2="76" y2="222" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+        <line x1="76" y1="214" x2="68" y2="222" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+        <!-- Blocked arrows -->
+        <line x1="74" y1="82" x2="104" y2="90" stroke="#ef4444" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+        <line x1="56" y1="155" x2="104" y2="140" stroke="#f97316" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+        <!-- Block marks on shield edge -->
+        <circle cx="108" cy="90" r="4" fill="#ef4444" opacity="0.6" filter="url(#shglow)"/>
+        <circle cx="108" cy="140" r="4" fill="#f97316" opacity="0.6" filter="url(#shglow)"/>
+        <!-- Status text -->
+        <rect x="290" y="90" width="76" height="20" rx="4" fill="#071510" stroke="#10b981" stroke-width="0.7" opacity="0.7"/>
+        <circle cx="300" cy="100" r="3" fill="#10b981" opacity="0.8"/>
+        <rect x="308" y="97" width="44" height="3" rx="1.5" fill="#10b981" opacity="0.5"/>
+        <rect x="290" y="118" width="76" height="20" rx="4" fill="#071510" stroke="#10b981" stroke-width="0.7" opacity="0.7"/>
+        <circle cx="300" cy="128" r="3" fill="#10b981" opacity="0.8"/>
+        <rect x="308" y="125" width="36" height="3" rx="1.5" fill="#10b981" opacity="0.5"/>
+        <rect x="290" y="146" width="76" height="20" rx="4" fill="#071510" stroke="#10b981" stroke-width="0.7" opacity="0.7"/>
+        <circle cx="300" cy="156" r="3" fill="#10b981" opacity="0.8"/>
+        <rect x="308" y="153" width="50" height="3" rx="1.5" fill="#10b981" opacity="0.5"/>
+        <text x="190" y="262" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" letter-spacing="4" fill="rgba(16,185,129,0.35)">ACTIVE PROTECTION</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <section style="background:var(--bg2);padding:65px 5vw;">
+    <div class="reveal" style="background:linear-gradient(135deg,rgba(0,212,255,0.07),rgba(124,58,237,0.07));border:1px solid rgba(0,212,255,0.14);border-radius:18px;padding:3rem 3.5rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <p class="section-label">No Obligation</p>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,2.8vw,2.2rem);">Free IT Audit —<br><span>See Where You Stand</span></h2>
+        <p style="color:var(--muted);margin-top:0.8rem;font-size:0.92rem;max-width:460px;line-height:1.7;">I'll review your setup, flag vulnerabilities, and deliver a plain-English report. No sales pitch. No invoice.</p>
+      </div>
+      <a href="#" class="btn-primary" data-nav="contact" style="white-space:nowrap;font-size:0.95rem;padding:1rem 2rem;">Schedule Free Audit →</a>
+    </div>
+  </section>
+
+</div>
+
+<style>
+@media (max-width: 768px) {
+  .home-split { grid-template-columns: 1fr !important; }
+}
+</style>
+
+<!-- ═══════════════ SERVICES PAGE ═══════════════ -->
+<div id="page-services" class="page">
+  <section id="services" style="padding-top:130px;">
+    <div class="reveal">
+      <p class="section-label">Full Service Menu</p>
+      <h2 class="section-title">Everything Your Business<br><span>Needs in IT & AI</span></h2>
+      <p class="section-sub">All prices are $20 below the current market average. You get the same enterprise-grade expertise without the bloated agency markup.</p>
+    </div>
+
+    <div class="services-grid" style="margin-top:3rem;">
+      <!-- MSP -->
+      <div class="service-card reveal">
+        <div class="service-icon icon-blue">🖥️</div>
+        <h3>Managed IT Services — Essentials</h3>
+        <p>Remote monitoring, patch management, helpdesk support (business hours), antivirus, and monthly reporting.</p>
+        <div class="service-price"><span class="price-amount">$110</span><span class="price-period">/user/mo</span><span class="price-old">industry: $130</span><span class="badge-save">$20 less</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-blue">⚙️</div>
+        <h3>Managed IT Services — Standard</h3>
+        <p>Everything in Essentials + 24/7 monitoring, unlimited helpdesk, M365 admin, backup, and network management.</p>
+        <div class="service-price"><span class="price-amount">$130</span><span class="price-period">/user/mo</span><span class="price-old">industry: $150</span><span class="badge-save">$20 less</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-blue">🚀</div>
+        <h3>Managed IT Services — Premium</h3>
+        <p>Full-stack IT: Standard + advanced security, vCISO consulting, CMMC/NIST prep, onsite support included.</p>
+        <div class="service-price"><span class="price-amount">$230</span><span class="price-period">/user/mo</span><span class="price-old">industry: $250</span><span class="badge-save">$20 less</span></div>
+      </div>
+
+      <!-- CYBERSECURITY -->
+      <div class="service-card reveal">
+        <div class="service-icon icon-green">🔒</div>
+        <h3>Cybersecurity — EDR/XDR</h3>
+        <p>SentinelOne or compatible EDR deployment, tuning, and ongoing threat response. CMMC-ready configurations.</p>
+        <div class="service-price"><span class="price-amount">$155</span><span class="price-period">/user/mo</span><span class="price-old">industry: $175</span><span class="badge-save">$20 less</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-green">🛡️</div>
+        <h3>Firewall & Network Security</h3>
+        <p>FortiGate / SonicWall setup, VLAN segmentation, GPO hardening, intrusion detection, and rule maintenance.</p>
+        <div class="service-price"><span class="price-amount">$780</span><span class="price-period">setup + $80/mo</span><span class="price-old">industry: $800/$100</span><span class="badge-save">$20 less</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-green">📋</div>
+        <h3>CMMC / NIST Compliance</h3>
+        <p>Gap analysis, documentation, policy creation, and remediation roadmap for DoD contractors and defense supply chain.</p>
+        <div class="service-price"><span class="price-amount">$1,480</span><span class="price-period">per engagement</span><span class="price-old">industry: $1,500+</span><span class="badge-save">$20 less</span></div>
+      </div>
+
+      <!-- AI SERVICES -->
+      <div class="service-card reveal">
+        <div class="service-icon icon-purple">🤖</div>
+        <h3>AI Customer Service Chatbot</h3>
+        <p>Custom-trained chatbot for your website — handles FAQs, lead capture, order intake, and escalation. Setup + monthly hosting.</p>
+        <div class="service-price"><span class="price-amount">$280</span><span class="price-period">/mo</span><span class="price-old">industry: $300</span><span class="badge-save">$20 less</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-purple">⚡</div>
+        <h3>AI Workflow Automation</h3>
+        <p>Automate repetitive tasks: email routing, CRM updates, data entry, scheduling, and reporting using AI agents.</p>
+        <div class="service-price"><span class="price-amount">$380</span><span class="price-period">/mo</span><span class="price-old">industry: $400</span><span class="badge-save">$20 less</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-purple">🧠</div>
+        <h3>AI Agent Training & Deployment</h3>
+        <p>Build and deploy custom AI agents on your infrastructure — knowledge base ingestion, fine-tuning, API integrations.</p>
+        <div class="service-price"><span class="price-amount">$1,480</span><span class="price-period">one-time</span><span class="price-old">industry: $1,500</span><span class="badge-save">$20 less</span></div>
+      </div>
+
+      <!-- WEB -->
+      <div class="service-card reveal">
+        <div class="service-icon icon-orange">🌐</div>
+        <h3>Website Design & Build</h3>
+        <p>Professional responsive website with SEO foundation, contact forms, and optional AI chat widget. 2–3 week turnaround.</p>
+        <div class="service-price"><span class="price-amount">$780</span><span class="price-period">one-time</span><span class="price-old">industry: $800</span><span class="badge-save">$20 less</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-orange">🔄</div>
+        <h3>Website Maintenance</h3>
+        <p>Monthly updates, security patching, uptime monitoring, backup, and content updates. Keep your site fast and secure.</p>
+        <div class="service-price"><span class="price-amount">$80</span><span class="price-period">/mo</span><span class="price-old">industry: $100</span><span class="badge-save">$20 less</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon icon-orange">📊</div>
+        <h3>IT Consulting / vCIO</h3>
+        <p>Strategic IT planning, vendor selection, budget forecasting, and roadmap development. Billed hourly or monthly retainer.</p>
+        <div class="service-price"><span class="price-amount">$130</span><span class="price-period">/hr</span><span class="price-old">industry: $150</span><span class="badge-save">$20 less</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="background:var(--bg2);">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">Simple, <span>Transparent</span> Process</h2>
+    </div>
+    <div class="process-steps">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <h4>Free Audit</h4>
+        <p>I review your current environment, tools, and pain points — no cost, no commitment.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">02</div>
+        <h4>Custom Proposal</h4>
+        <p>You get a clear scope of work, fixed pricing, and a plain-English explanation.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">03</div>
+        <h4>Fast Onboarding</h4>
+        <p>Deployment within days. Tools installed, monitoring live, documentation complete.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">04</div>
+        <h4>Ongoing Support</h4>
+        <p>Monthly reviews, proactive alerts, and a direct line to a real person — not a ticket queue.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ AI PAGE ═══════════════ -->
+<div id="page-ai" class="page">
+  <section id="ai" style="padding-top:130px;">
+    <div class="reveal">
+      <p class="section-label">AI & Automation</p>
+      <h2 class="section-title">Put AI to Work<br><span>In Your Business</span></h2>
+      <p class="section-sub">Not buzzwords — real automation that saves hours, reduces costs, and scales your team without adding headcount.</p>
+    </div>
+
+    <div class="ai-grid" style="margin-top:3.5rem;">
+      <div class="ai-features">
+        <div class="ai-feature reveal-left">
+          <div class="ai-feature-icon">🤖</div>
+          <div class="ai-feature-text">
+            <h4>Custom AI Chatbots</h4>
+            <p>Trained on your products, services, and policies. Handles 80%+ of customer questions automatically — 24/7.</p>
+          </div>
+        </div>
+        <div class="ai-feature reveal-left">
+          <div class="ai-feature-icon">⚡</div>
+          <div class="ai-feature-text">
+            <h4>Workflow Automation</h4>
+            <p>Connect your tools — CRM, email, spreadsheets, ticketing — and let AI handle the repetitive work between them.</p>
+          </div>
+        </div>
+        <div class="ai-feature reveal-left">
+          <div class="ai-feature-icon">🧠</div>
+          <div class="ai-feature-text">
+            <h4>Agent Training & Deployment</h4>
+            <p>Custom AI agents with domain knowledge, tool access, and decision-making — deployed on your infrastructure or cloud.</p>
+          </div>
+        </div>
+        <div class="ai-feature reveal-left">
+          <div class="ai-feature-icon">🔗</div>
+          <div class="ai-feature-text">
+            <h4>System Integrations</h4>
+            <p>Google Sheets, Salesforce, ServiceNow, QuickBooks, and more — AI that plugs into what you already use.</p>
+          </div>
+        </div>
+        <div class="ai-feature reveal-left">
+          <div class="ai-feature-icon">📊</div>
+          <div class="ai-feature-text">
+            <h4>AI-Powered Reporting</h4>
+            <p>Automated dashboards, summaries, and alerts — turn your data into actionable insights without manual effort.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ai-visual-box reveal-right">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:1.5rem;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#ef4444;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#fbbf24;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--accent3);"></div>
+          <span style="font-size:0.78rem;color:var(--muted);margin-left:8px;">Forge AI Assistant — Live Demo</span>
+        </div>
+        <div class="chat-demo" id="chatDemo">
+          <div class="chat-msg user">Hi! What IT services do you offer?</div>
+          <div class="chat-msg bot">
+            <div class="bot-name">Forge AI</div>
+            We offer managed IT services, cybersecurity, AI automation, and web development — all priced $20 below the market average. Want a free audit to see what fits your business?
+          </div>
+          <div class="chat-msg user">Can you automate my customer support?</div>
+          <div class="chat-msg bot">
+            <div class="bot-name">Forge AI</div>
+            Absolutely! I can deploy a custom-trained AI chatbot on your website within 2 weeks. It'll handle FAQs, capture leads, and escalate complex issues to you. Starting at $280/mo.
+          </div>
+        </div>
+        <div style="margin-top:1rem; display:flex; gap:8px;">
+          <input id="chatInput" type="text" placeholder="Ask something..." style="flex:1; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.6rem 1rem; color:var(--text); font-family:'Inter',sans-serif; font-size:0.85rem; outline:none;" id="chatInput">
+          <button id="chatSendBtn" style="background:var(--accent); border:none; border-radius:8px; padding:0.6rem 1rem; cursor:pointer; font-weight:700; color:#000; font-size:0.85rem;">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI PRICING -->
+    <div style="margin-top:5rem;">
+      <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+        <p class="section-label">AI Pricing</p>
+        <h2 class="section-title">AI Solutions That <span>Scale With You</span></h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem;">
+        <div class="service-card reveal">
+          <div class="service-icon icon-purple">💬</div>
+          <h3>Starter Chatbot</h3>
+          <p>Basic FAQ bot for your website. Pre-trained on your content, web embed, monthly updates.</p>
+          <div class="service-price"><span class="price-amount">$80</span><span class="price-period">/mo</span><span class="price-old">vs $100</span><span class="badge-save">$20 less</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon icon-purple">🤖</div>
+          <h3>Smart AI Assistant</h3>
+          <p>Full NLP chatbot with CRM/form integrations, lead capture, order intake, and escalation logic.</p>
+          <div class="service-price"><span class="price-amount">$280</span><span class="price-period">/mo</span><span class="price-old">vs $300</span><span class="badge-save">$20 less</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon icon-purple">⚡</div>
+          <h3>Automation Bundle</h3>
+          <p>AI workflows for email, scheduling, reporting, and data entry. Up to 10 automation flows.</p>
+          <div class="service-price"><span class="price-amount">$380</span><span class="price-period">/mo</span><span class="price-old">vs $400</span><span class="badge-save">$20 less</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon icon-purple">🧠</div>
+          <h3>Custom AI Agent</h3>
+          <p>Fully custom agent with tool access, knowledge base, and deployment on your infrastructure.</p>
+          <div class="service-price"><span class="price-amount">$1,480</span><span class="price-period">one-time</span><span class="price-old">vs $1,500</span><span class="badge-save">$20 less</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ PRICING PAGE ═══════════════ -->
+<div id="page-pricing" class="page">
+  <section id="pricing" style="padding-top:130px;">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Transparent Pricing</p>
+      <h2 class="section-title">No Surprises. <span>No Hidden Fees.</span></h2>
+      <p class="section-sub" style="margin:1rem auto 0; text-align:center;">All plans are $20/user below the current industry average. Pick what fits your business today — scale up anytime.</p>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin:2.5rem 0;justify-content:center;" class="reveal">
+      <span id="label-monthly" style="font-size:0.9rem;color:var(--white);font-weight:600;">Monthly</span>
+      <div class="toggle" id="billingToggle" id="billingToggle"><div class="toggle-knob"></div></div>
+      <span id="label-annual" style="font-size:0.9rem;color:var(--muted);">Annual <span style="color:var(--accent3);font-size:0.78rem;font-weight:700;">Save 10%</span></span>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- ESSENTIALS -->
+      <div class="pricing-card reveal">
+        <h3>Essentials</h3>
+        <p class="desc">For small businesses needing reliable IT basics without the overhead.</p>
+        <div class="price-display">
+          <span class="dollar">$</span>
+          <span class="num" id="price-ess">110</span>
+          <span class="period">/user/mo</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Remote monitoring & alerting</li>
+          <li><span class="check">✓</span> Patch management</li>
+          <li><span class="check">✓</span> Helpdesk (business hours)</li>
+          <li><span class="check">✓</span> Antivirus / EDR basic</li>
+          <li><span class="check">✓</span> Monthly IT reports</li>
+          <li><span class="check">✓</span> M365 user management</li>
+          <li><span class="x">✗</span> 24/7 support</li>
+          <li><span class="x">✗</span> Advanced security</li>
+        </ul>
+        <a href="#" class="btn-plan outline" data-nav="contact">Get Started</a>
+      </div>
+
+      <!-- STANDARD -->
+      <div class="pricing-card featured reveal">
+        <div class="popular-tag">⭐ Most Popular</div>
+        <h3>Standard</h3>
+        <p class="desc">Everything growing SMBs need — fully managed, proactive, and secure.</p>
+        <div class="price-display">
+          <span class="dollar">$</span>
+          <span class="num" id="price-std">130</span>
+          <span class="period">/user/mo</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Everything in Essentials</li>
+          <li><span class="check">✓</span> 24/7 monitoring & support</li>
+          <li><span class="check">✓</span> Network management</li>
+          <li><span class="check">✓</span> Backup & disaster recovery</li>
+          <li><span class="check">✓</span> Full M365 admin</li>
+          <li><span class="check">✓</span> FortiGate/SonicWall mgmt</li>
+          <li><span class="check">✓</span> Quarterly strategy review</li>
+          <li><span class="x">✗</span> CMMC/NIST compliance</li>
+        </ul>
+        <a href="#" class="btn-plan primary" data-nav="contact">Get Started</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pricing-card reveal">
+        <h3>Premium</h3>
+        <p class="desc">Full-stack IT + cybersecurity + compliance for businesses with high requirements.</p>
+        <div class="price-display">
+          <span class="dollar">$</span>
+          <span class="num" id="price-pre">230</span>
+          <span class="period">/user/mo</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Everything in Standard</li>
+          <li><span class="check">✓</span> Advanced EDR/XDR (SentinelOne)</li>
+          <li><span class="check">✓</span> Arctic Wolf SOC integration</li>
+          <li><span class="check">✓</span> CMMC / NIST compliance prep</li>
+          <li><span class="check">✓</span> Onsite support (Vancouver WA area)</li>
+          <li><span class="check">✓</span> vCISO consulting hours</li>
+          <li><span class="check">✓</span> AI automation starter</li>
+          <li><span class="check">✓</span> Priority response SLA</li>
+        </ul>
+        <a href="#" class="btn-plan outline" data-nav="contact">Get Started</a>
+      </div>
+    </div>
+
+    <!-- ADD-ON PRICING -->
+    <div style="margin-top:4rem;">
+      <div class="reveal" style="text-align:center; margin-bottom:2rem;">
+        <p class="section-label">À La Carte Add-Ons</p>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Only Pay for What <span>You Need</span></h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem;">
+        <div class="service-card reveal" style="padding:1.4rem;">
+          <h3 style="font-size:0.95rem;">AI Chatbot</h3>
+          <div class="service-price"><span class="price-amount" style="font-size:1.2rem;">$80</span><span class="price-period">/mo starter</span></div>
+        </div>
+        <div class="service-card reveal" style="padding:1.4rem;">
+          <h3 style="font-size:0.95rem;">Website Build</h3>
+          <div class="service-price"><span class="price-amount" style="font-size:1.2rem;">$780</span><span class="price-period">one-time</span></div>
+        </div>
+        <div class="service-card reveal" style="padding:1.4rem;">
+          <h3 style="font-size:0.95rem;">IT Consulting</h3>
+          <div class="service-price"><span class="price-amount" style="font-size:1.2rem;">$130</span><span class="price-period">/hr</span></div>
+        </div>
+        <div class="service-card reveal" style="padding:1.4rem;">
+          <h3 style="font-size:0.95rem;">Break-Fix Onsite</h3>
+          <div class="service-price"><span class="price-amount" style="font-size:1.2rem;">$155</span><span class="price-period">/hr</span></div>
+        </div>
+        <div class="service-card reveal" style="padding:1.4rem;">
+          <h3 style="font-size:0.95rem;">CMMC Assessment</h3>
+          <div class="service-price"><span class="price-amount" style="font-size:1.2rem;">$1,480</span><span class="price-period">flat</span></div>
+        </div>
+        <div class="service-card reveal" style="padding:1.4rem;">
+          <h3 style="font-size:0.95rem;">AI Agent Build</h3>
+          <div class="service-price"><span class="price-amount" style="font-size:1.2rem;">$1,480</span><span class="price-period">one-time</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ ABOUT PAGE ═══════════════ -->
+<div id="page-about" class="page">
+  <section id="about" style="padding-top:130px;">
+    <div class="about-grid">
+      <div class="about-photo-wrap reveal-left">
+        <div class="about-photo">
+          <div class="about-photo-placeholder">
+            <div class="avatar-circle">NK</div>
+            <div class="about-name-tag">
+              <h4>Nikita Zimin</h4>
+              <span>IT & AI Specialist</span>
+            </div>
+          </div>
+        </div>
+        <div class="badge-float b1">
+          <div class="dot-green"></div>
+          <span style="font-size:0.82rem;color:var(--text);">Available for new clients</span>
+        </div>
+        <div class="badge-float b2" style="flex-direction:column;align-items:flex-start;gap:2px;">
+          <span style="font-size:0.72rem;color:var(--muted);">Currently serving</span>
+          <span style="font-weight:700;color:var(--white);font-size:0.85rem;">Vancouver, WA & Remote</span>
+        </div>
+      </div>
+
+      <div class="reveal-right">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">10+ Years of Real-World <span>IT in the Trenches</span></h2>
+        <p style="color:var(--muted);margin-top:1.2rem;line-height:1.8;font-size:0.95rem;">
+          I'm Nikita Zimin — an IT professional based in Washougal, WA with 10+ years of hands-on experience across MSP environments, aerospace manufacturing, and defense contracting. I've done it all: triaging tickets at 7am, hardening firewalls at midnight, leading CMMC compliance audits, and everything in between.
+        </p>
+        <p style="color:var(--muted);margin-top:1rem;line-height:1.8;font-size:0.95rem;">
+          I've served as the sole IT person responsible for keeping full production environments, supply-chain ERPs, and network infrastructure running — supporting both manufacturing and defense industry requirements simultaneously. I know what it means to own the entire stack with no one to hand the ticket to.
+        </p>
+        <p style="color:var(--muted);margin-top:1rem;line-height:1.8;font-size:0.95rem;">
+          Beyond traditional IT, I build AI-powered tools for businesses — custom chatbots, automation agents, and workflow integrations that deliver measurable ROI fast. I bring enterprise-grade thinking to businesses of every size.
+        </p>
+
+        <div class="about-certs">
+          <div class="cert-badge"><span class="cert-icon">🎓</span> BAS Cybersecurity (In Progress)</div>
+          <div class="cert-badge"><span class="cert-icon">🏅</span> AAS Network Technology — Honors</div>
+          <div class="cert-badge"><span class="cert-icon">🔐</span> Google Cybersecurity Cert</div>
+          <div class="cert-badge"><span class="cert-icon">⚙️</span> CMMC / NIST 800-171</div>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Core Skills</p>
+          <div class="skills-cloud">
+            <span class="skill-tag">Active Directory</span>
+            <span class="skill-tag">Group Policy</span>
+            <span class="skill-tag">M365 / Exchange Online</span>
+            <span class="skill-tag">DNS / DHCP</span>
+            <span class="skill-tag">SentinelOne</span>
+            <span class="skill-tag">Arctic Wolf</span>
+            <span class="skill-tag">FortiGate</span>
+            <span class="skill-tag">SonicWall</span>
+            <span class="skill-tag">Aruba / UniFi</span>
+            <span class="skill-tag">VMware ESXi</span>
+            <span class="skill-tag">Hyper-V</span>
+            <span class="skill-tag">Lansweeper</span>
+            <span class="skill-tag">Visual ERP / SQL</span>
+            <span class="skill-tag">Wireshark</span>
+            <span class="skill-tag">Python Scripting</span>
+            <span class="skill-tag">AI / LLMs</span>
+            <span class="skill-tag">CMMC Compliance</span>
+            <span class="skill-tag">NIST 800-171</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE TIMELINE -->
+    <div style="margin-top:5rem;">
+      <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+        <p class="section-label">Experience</p>
+        <h2 class="section-title">What I've <span>Done</span></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px;max-width:700px;margin:0 auto;position:relative;">
+        <div style="position:absolute;left:23px;top:0;bottom:0;width:1px;background:var(--border);"></div>
+
+        <div class="reveal" style="display:flex;gap:1.5rem;padding:1.5rem 0 1.5rem 3.5rem;position:relative;">
+          <div style="position:absolute;left:16px;top:1.8rem;width:16px;height:16px;border-radius:50%;background:var(--accent);border:3px solid var(--bg2);"></div>
+          <div>
+            <p style="font-size:0.75rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">2023 – Present · Aerospace Manufacturing</p>
+            <h4 style="font-family:'Playfair Display',serif;color:var(--white);margin:4px 0;">IT Support & Systems Administration</h4>
+            <p style="font-size:0.88rem;color:var(--muted);">Full end-user support, Visual ERP administration, network maintenance, endpoint management, and cybersecurity operations in a regulated aerospace manufacturing environment.</p>
+          </div>
+        </div>
+
+        <div class="reveal" style="display:flex;gap:1.5rem;padding:1.5rem 0 1.5rem 3.5rem;position:relative;">
+          <div style="position:absolute;left:16px;top:1.8rem;width:16px;height:16px;border-radius:50%;background:var(--accent2);border:3px solid var(--bg2);"></div>
+          <div>
+            <p style="font-size:0.75rem;color:#a78bfa;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">2023 – Present · Defense Industry</p>
+            <h4 style="font-family:'Playfair Display',serif;color:var(--white);margin:4px 0;">IT Administrator — Sole Onsite IT</h4>
+            <p style="font-size:0.88rem;color:var(--muted);">Owned the entire IT environment independently: Windows Server, Active Directory, M365, FortiGate firewall, Aruba networking, backup systems, and CMMC compliance preparation for a defense-sector organization.</p>
+          </div>
+        </div>
+
+        <div class="reveal" style="display:flex;gap:1.5rem;padding:1.5rem 0 1.5rem 3.5rem;position:relative;">
+          <div style="position:absolute;left:16px;top:1.8rem;width:16px;height:16px;border-radius:50%;background:var(--accent3);border:3px solid var(--bg2);"></div>
+          <div>
+            <p style="font-size:0.75rem;color:var(--accent3);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">2022 – 2023 · Managed Service Provider</p>
+            <h4 style="font-family:'Playfair Display',serif;color:var(--white);margin:4px 0;">Level 2 Systems Engineer</h4>
+            <p style="font-size:0.88rem;color:var(--muted);">Managed IT environments for dozens of SMB clients simultaneously — Windows Server, Active Directory, GPO, firewall configuration, M365 administration, and Tier 2 escalation support.</p>
+          </div>
+        </div>
+
+        <div class="reveal" style="display:flex;gap:1.5rem;padding:1.5rem 0 1.5rem 3.5rem;position:relative;">
+          <div style="position:absolute;left:16px;top:1.8rem;width:16px;height:16px;border-radius:50%;background:var(--muted);border:3px solid var(--bg2);"></div>
+          <div>
+            <p style="font-size:0.75rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">2021 – 2022 · Managed Service Provider</p>
+            <h4 style="font-family:'Playfair Display',serif;color:var(--white);margin:4px 0;">Systems Engineer</h4>
+            <p style="font-size:0.88rem;color:var(--muted);">Provided multi-client IT support covering helpdesk, network administration, security implementation, and infrastructure troubleshooting across a diverse SMB client base.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" style="background:var(--bg3);">
+    <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+      <p class="section-label">Reviews</p>
+      <h2 class="section-title">What Clients <span>Are Saying</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Nikita completely revamped our network and deployed a chatbot on our site that's now handling 70% of incoming customer questions. Wish we'd found him sooner."</p>
+        <div class="testi-author">
+          <div class="author-avatar av1">JM</div>
+          <div class="author-info">
+            <span class="author-name">James M.</span>
+            <span class="author-title">Owner, Manufacturing Co.</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"We needed CMMC compliance fast. Nikita knew exactly what to do — delivered our gap analysis in a week and had us remediated within the month. Incredibly knowledgeable."</p>
+        <div class="testi-author">
+          <div class="author-avatar av2">SR</div>
+          <div class="author-info">
+            <span class="author-name">Sarah R.</span>
+            <span class="author-title">COO, Defense Subcontractor</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"The AI automation workflows he built save our team at least 15 hours a week. The pricing was transparent and fair — no surprise invoices. Highly recommend."</p>
+        <div class="testi-author">
+          <div class="author-avatar av3">DK</div>
+          <div class="author-info">
+            <span class="author-name">Derek K.</span>
+            <span class="author-title">CEO, E-Commerce Brand</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ CONTACT PAGE ═══════════════ -->
+<div id="page-contact" class="page">
+  <section id="contact" style="padding-top:130px;">
+    <div class="reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let's Talk About<br><span>Your IT Needs</span></h2>
+      <p class="section-sub">Fill out the form and I'll get back to you within 24 hours. Or just call/email directly — no phone trees, no support tickets. A real person answers.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal-left" style="margin-top:2rem;">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Vancouver / Washougal, WA<br>Serving Pacific Northwest + Remote</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="92faf7fefefdd2f4fde0f5f7fbe6f3fbbcf1fdff">[email&#160;protected]</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone / Text</h4>
+            <p>(360) 555-0192</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <h4>Response Time</h4>
+            <p>Business hours: within 2 hrs<br>After hours: next business day</p>
+          </div>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-top:1rem;">
+          <p style="font-size:0.8rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;">Free IT Audit Includes</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;gap:8px;align-items:center;font-size:0.87rem;color:var(--muted);">
+              <span style="color:var(--accent3);">✓</span> Network & endpoint inventory
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;font-size:0.87rem;color:var(--muted);">
+              <span style="color:var(--accent3);">✓</span> Security gap assessment
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;font-size:0.87rem;color:var(--muted);">
+              <span style="color:var(--accent3);">✓</span> M365 configuration review
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;font-size:0.87rem;color:var(--muted);">
+              <span style="color:var(--accent3);">✓</span> AI automation opportunities
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;font-size:0.87rem;color:var(--muted);">
+              <span style="color:var(--accent3);">✓</span> Plain-English report delivered
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal-right" style="margin-top:2rem;" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Business Email *</label>
+          <input type="email" placeholder="john@yourcompany.com" required>
+        </div>
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" placeholder="Acme Corp">
+        </div>
+        <div class="form-group">
+          <label>Number of Employees</label>
+          <select>
+            <option value="">Select range</option>
+            <option>1–5</option>
+            <option>6–15</option>
+            <option>16–50</option>
+            <option>51–100</option>
+            <option>100+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What can I help with?</label>
+          <select>
+            <option value="">Select a service</option>
+            <option>Managed IT Services</option>
+            <option>Cybersecurity / Compliance</option>
+            <option>AI Chatbot / Automation</option>
+            <option>Website Development</option>
+            <option>Free IT Audit</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell me about your situation</label>
+          <textarea placeholder="What's your biggest IT pain point right now?"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message — It's Free →</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo" data-nav="home" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+        <svg viewBox="0 0 40 40" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="fcg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+          <polygon points="20,3 34,11 34,27 20,35 6,27 6,11" fill="rgba(0,212,255,0.06)" stroke="url(#fcg)" stroke-width="1.5"/>
+          <rect x="14" y="11" width="3" height="18" rx="1.5" fill="url(#fcg)"/>
+          <rect x="14" y="11" width="12" height="3" rx="1.5" fill="url(#fcg)"/>
+          <rect x="14" y="19" width="9" height="3" rx="1.5" fill="url(#fcg)"/>
+          <circle cx="34" cy="11" r="3" fill="#00d4ff" opacity="0.9"/>
+        </svg>
+        <span>Forge<span style="color:var(--accent)">IT</span> <span style="color:var(--muted);font-weight:400;font-size:0.9rem;">&amp; AI</span></span>
+      </a>
+      <p>Enterprise-grade IT and AI solutions for businesses in Vancouver, WA and beyond. Real expertise, honest pricing, actual results.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#" data-nav="services">Managed IT</a></li>
+        <li><a href="#" data-nav="services">Cybersecurity</a></li>
+        <li><a href="#" data-nav="ai">AI Chatbots</a></li>
+        <li><a href="#" data-nav="ai">Automation</a></li>
+        <li><a href="#" data-nav="services">Web Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#" data-nav="about">About Nikita</a></li>
+        <li><a href="#" data-nav="pricing">Pricing</a></li>
+        <li><a href="#" data-nav="about">Testimonials</a></li>
+        <li><a href="#" data-nav="contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">Vancouver, WA</a></li>
+        <li><a href="#"><span class="__cf_email__" data-cfemail="ff979a939390bf99908d989a968b9e96d19c9092">[email&#160;protected]</span></a></li>
+        <li><a href="#">(360) 555-0192</a></li>
+        <li><a href="#" data-nav="contact">Free IT Audit →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Forge IT & AI. All rights reserved.</p>
+    <p style="color:var(--muted);">IT Services & AI Automation — Vancouver, WA</p>
+  </div>
+</footer>
+
+<!-- NOTIFICATION POPUP -->
+<div class="notif-popup" id="notifPopup">
+  <div class="notif-av">🔔</div>
+  <div class="notif-text">
+    <span class="notif-title">New inquiry from Seattle</span>
+    <span class="notif-sub">Asked about AI chatbot setup</span>
+  </div>
+  <div class="notif-dot"></div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── PAGE NAVIGATION ──
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + page);
+  if (target) target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(initReveal, 100);
+}
+
+// ── DELEGATE ALL data-nav CLICKS ──
+document.addEventListener('click', function(e) {
+  const el = e.target.closest('[data-nav]');
+  if (el) {
+    e.preventDefault();
+    showPage(el.getAttribute('data-nav'));
+    if (el.hasAttribute('data-mobile')) {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+  }
+});
+
+// ── HAMBURGER ──
+document.addEventListener('click', function(e) {
+  if (e.target.closest('#hamburgerBtn')) {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+});
+
+// ── SCROLL REVEAL ──
+function initReveal() {
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+initReveal();
+
+// ── BILLING TOGGLE ──
+let isAnnual = false;
+const prices = { ess: 110, std: 130, pre: 230 };
+const billingToggleEl = document.getElementById('billingToggle');
+if (billingToggleEl) {
+  billingToggleEl.addEventListener('click', function() {
+    isAnnual = !isAnnual;
+    this.classList.toggle('on', isAnnual);
+    document.getElementById('label-monthly').style.color = isAnnual ? 'var(--muted)' : 'var(--white)';
+    document.getElementById('label-annual').style.color = isAnnual ? 'var(--white)' : 'var(--muted)';
+    const mult = isAnnual ? 0.9 : 1;
+    document.getElementById('price-ess').textContent = Math.round(prices.ess * mult);
+    document.getElementById('price-std').textContent = Math.round(prices.std * mult);
+    document.getElementById('price-pre').textContent = Math.round(prices.pre * mult);
+  });
+}
+
+// ── CHAT DEMO ──
+const chatReplies = {
+  default: ["Great question! Happy to set up a free consultation to discuss that.", "That's exactly what I specialize in. Let's schedule a quick call — no commitment.", "I can definitely help with that. My rates are $20 below the industry average too!"],
+  pricing: ["Managed IT starts at $110/user/mo — about $20 less than the $130 industry average. Want a custom quote?"],
+  security: ["Cybersecurity is my specialty — CMMC, NIST, SentinelOne EDR, FortiGate firewalls. Free security audit available."],
+  ai: ["Custom AI chatbots from $80/mo, automation workflows at $380/mo, full AI agent deployment from $1,480 one-time."],
+  hello: ["Hi! I'm the Forge IT & AI assistant. Ask me about IT services, AI automation, pricing, or schedule a free audit!"],
+};
+function getReply(msg) {
+  msg = msg.toLowerCase();
+  if (msg.match(/hello|hi|hey/)) return chatReplies.hello[0];
+  if (msg.match(/price|cost|how much|\$/)) return chatReplies.pricing[0];
+  if (msg.match(/security|hack|cmmc|nist|firewall|virus/)) return chatReplies.security[0];
+  if (msg.match(/ai|chatbot|automat|agent/)) return chatReplies.ai[0];
+  return chatReplies.default[Math.floor(Math.random() * chatReplies.default.length)];
+}
+function sendChat() {
+  const inp = document.getElementById('chatInput');
+  if (!inp) return;
+  const msg = inp.value.trim();
+  if (!msg) return;
+  const demo = document.getElementById('chatDemo');
+  const userEl = document.createElement('div');
+  userEl.className = 'chat-msg user';
+  userEl.textContent = msg;
+  demo.appendChild(userEl);
+  inp.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'typing';
+  typing.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+  demo.appendChild(typing);
+  demo.scrollTop = demo.scrollHeight;
+  setTimeout(() => {
+    demo.removeChild(typing);
+    const botEl = document.createElement('div');
+    botEl.className = 'chat-msg bot';
+    botEl.innerHTML = '<div class="bot-name">Forge AI</div>' + getReply(msg);
+    demo.appendChild(botEl);
+    demo.scrollTop = demo.scrollHeight;
+  }, 1100);
+}
+document.addEventListener('click', function(e) {
+  if (e.target.id === 'chatSendBtn') sendChat();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && document.activeElement && document.activeElement.id === 'chatInput') sendChat();
+});
+
+// ── CONTACT FORM ──
+const contactFormEl = document.getElementById('contactForm');
+if (contactFormEl) {
+  contactFormEl.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.submit-btn');
+    btn.textContent = '✓ Message Sent! I'll respond within 24hrs.';
+    btn.style.background = 'var(--accent3)';
+    btn.disabled = true;
+  });
+}
+
+// ── NOTIFICATION POPUP ──
+setTimeout(() => {
+  const p = document.getElementById('notifPopup');
+  if (p) {
+    p.classList.add('show');
+    setTimeout(() => p.classList.remove('show'), 5000);
+  }
+}, 3000);
+
+// ── NAV SCROLL EFFECT ──
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (nav) nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
+});
+</script><script>
+// ── PAGE NAVIGATION ──
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(initReveal, 100);
+}
+
+function toggleMobile() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ── SCROLL REVEAL ──
+function initReveal() {
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => obs.observe(el));
+}
+initReveal();
+
+// ── BILLING TOGGLE ──
+let isAnnual = false;
+const prices = { ess: 110, std: 130, pre: 230 };
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  const tog = document.getElementById('billingToggle');
+  tog.classList.toggle('on', isAnnual);
+  document.getElementById('label-monthly').style.color = isAnnual ? 'var(--muted)' : 'var(--white)';
+  document.getElementById('label-annual').style.color = isAnnual ? 'var(--white)' : 'var(--muted)';
+  const mult = isAnnual ? 0.9 : 1;
+  document.getElementById('price-ess').textContent = Math.round(prices.ess * mult);
+  document.getElementById('price-std').textContent = Math.round(prices.std * mult);
+  document.getElementById('price-pre').textContent = Math.round(prices.pre * mult);
+}
+
+// ── CHAT DEMO ──
+const chatReplies = {
+  default: ["Great question! I'd be happy to set up a free consultation to discuss that.", "That's exactly what I specialize in. Let's schedule a quick call — no commitment.", "I can definitely help with that. My rates are $20 below the industry average too!"],
+  pricing: ["My Managed IT starts at $110/user/mo — about $20 less than the industry average of $130. Want a custom quote?"],
+  security: ["Cybersecurity is my specialty — CMMC, NIST, EDR with SentinelOne, FortiGate firewalls. I'll run a free security audit for you."],
+  ai: ["I build custom AI chatbots starting at $80/mo, automation workflows at $380/mo, and full AI agent deployment from $1,480 one-time."],
+  hello: ["Hi there! I'm the Forge AI assistant. Ask me anything about IT services, AI automation, pricing, or schedule a free audit!"],
+};
+function getReply(msg) {
+  msg = msg.toLowerCase();
+  if (msg.match(/hello|hi|hey/)) return chatReplies.hello[0];
+  if (msg.match(/price|cost|how much|\$/)) return chatReplies.pricing[0];
+  if (msg.match(/security|hack|cmmc|nist|firewall|virus/)) return chatReplies.security[0];
+  if (msg.match(/ai|chatbot|automat|agent/)) return chatReplies.ai[0];
+  return chatReplies.default[Math.floor(Math.random() * chatReplies.default.length)];
+}
+function sendChat() {
+  const inp = document.getElementById('chatInput');
+  const msg = inp.value.trim();
+  if (!msg) return;
+  const demo = document.getElementById('chatDemo');
+  const userEl = document.createElement('div');
+  userEl.className = 'chat-msg user';
+  userEl.textContent = msg;
+  demo.appendChild(userEl);
+  inp.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'typing';
+  typing.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+  demo.appendChild(typing);
+  demo.scrollTop = demo.scrollHeight;
+  setTimeout(() => {
+    demo.removeChild(typing);
+    const botEl = document.createElement('div');
+    botEl.className = 'chat-msg bot';
+    botEl.innerHTML = '<div class="bot-name">Forge AI</div>' + getReply(msg);
+    demo.appendChild(botEl);
+    demo.scrollTop = demo.scrollHeight;
+  }, 1200);
+}
+
+// ── FORM ──
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.submit-btn');
+  btn.textContent = '✓ Message Sent! I\'ll respond within 24hrs.';
+  btn.style.background = 'var(--accent3)';
+  btn.disabled = true;
+}
+
+// ── NOTIFICATION POPUP ──
+setTimeout(() => {
+  const p = document.getElementById('notifPopup');
+  p.classList.add('show');
+  setTimeout(() => p.classList.remove('show'), 5000);
+}, 3000);
+
+// ── NAV SCROLL EFFECT ──
+window.addEventListener('scroll', () => {
+  const nav = docu
